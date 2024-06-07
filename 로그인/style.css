@@ -1,0 +1,158 @@
+:root{
+}
+body{
+    padding: 0;
+    margin: 0;
+}
+
+.페이지-컨테이너{
+    width: 100vw;
+    height: 100vh;
+    background: #eff0f2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.그림자{
+    -webkit-box-shadow: 27px 43px 43px -26px rgba(89,89,89,0.39);
+    -moz-box-shadow: 27px 43px 43px -26px rgba(89,89,89,0.39);
+    box-shadow: 27px 43px 43px -26px rgba(89,89,89,0.39);
+}
+
+.로그인-폼-컨테이너{
+    background: white;
+    width:860px;
+    height: 540px;
+    display: flex;
+    flex-direction: row;
+    box-shadow: 10px black;
+    border-radius: 10px;
+}
+.로그인-폼-오른쪽-영역{
+    width: 50%;
+    border-radius: 10px 0px 0px 10px;
+    padding:75px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background-color: skyblue;
+}
+h1{
+    color: white;
+    width:100%;
+    text-align: right;
+}
+p{
+    padding-top: 50px;
+    font-size:12px;
+    text-align: right;
+}
+.로그인-폼-왼쪽-영역{
+    width: 50%;
+    border-radius: 0px 10px 10px 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding:40px;
+    background: white;
+}
+.로그인-상단-영역{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width:100%;
+}
+span{
+    color: gray;
+    font-size: 11px;
+    padding-right:20px;
+}
+#회원가입 {
+    background: white;
+    border:  0;
+    width:85px;
+    height: 35px;
+    font-size: 11px;
+    color: skyblue;
+    border-radius: 3px;
+}
+
+.로그인-입력-컨테이너{
+    padding-top:120px;
+    width:300px;
+}
+.로그인-입력-영역{
+    width:300px;
+    height: 45px;
+    margin-top: 20px;
+    border-radius: 2px;
+    border-bottom: solid 2px skyblue;
+}
+i{
+    color: skyblue;
+}
+
+input{
+    background: none;
+    border: none;
+    padding-left:10px;
+    width:267px;
+}
+input:focus{
+    outline: none;
+}
+.로그인-버튼-영역{
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.로그인-버튼{
+    width:95px;
+    height:35px;
+    color:white;
+    border: 0;
+    border-radius: 4px;
+    background: skyblue;
+}
+u{
+    margin-top:10px;
+    font-size: 11px;
+    color: gray;
+}
+.모달 {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.4);
+    padding-top: 60px;
+}
+.모달-컨텐츠 {
+    background-color: white;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid gray;
+    width: 80%;
+    max-width: 500px;
+    border-radius: 4px;
+}
+.닫기 {
+    color: gray;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+.닫기:hover,
+.닫기:focus {
+    color: black;
+    cursor: pointer;
+}
+button{
+    cursor: pointer;
+}
