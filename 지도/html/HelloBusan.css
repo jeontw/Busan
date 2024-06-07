@@ -1,0 +1,209 @@
+body {
+    zoom: 0.85;
+    margin: 0;
+    position: relative;
+}
+::-webkit-scrollbar {
+    display: none;
+}
+
+#top-bar{
+    z-index: 4;
+    position: fixed;
+    width: 115px;
+    height: 100%;
+    background-color: aqua;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+#main{
+    width: 1000px;
+    height: 1000px;
+    display: flex;
+    align-items: center;
+    margin-left: 400px;
+    padding-top: 100px;
+}
+#hello{
+    font-size: 88px;
+    color: rgb(55, 86, 187);
+    position: relative;
+    bottom: 530px; left: 730px;
+    white-space : nowrap;
+}
+img{
+    cursor: pointer;
+    caret-color: transparent;
+}
+#지도{
+    margin: auto;
+    width: 500px;
+    height:500px;
+    position: relative;
+    right: 750px; bottom: 300px;
+}
+#지역클릭{
+    width: 900px;   
+    position: relative;
+    bottom: 280px; right: 1260px;
+}
+#bto{
+    height: 100px;
+    position: relative;
+    top: 370px; right: 1000px;
+}
+#부산을품다{
+    width: 950px;   
+    position: relative;
+    bottom: 45px; right: 762px  ;
+}
+#visit{
+    width: 200px;
+    position: relative;
+    bottom: 350px; right: 700px  ;
+}
+#부산광역시{
+    width: 200px;
+    position: relative;
+    top: 390px; right: 800px  ;
+}
+#동서대로고{
+    width: 300px;
+    position: relative;
+    top: 300px; right: 450px;
+}
+#강서구{
+    position: absolute;
+    top: 405px; right: 492px;
+    z-index: 0;
+}
+#강서구:hover{
+    transform: scale(1.1);
+    z-index: 3;
+}
+#사하구{
+    position: absolute;
+    top: 576px; right: 463px;
+    z-index: 0.5;
+}
+#사하구:hover{
+    transform: scale(1.1);
+    z-index: 3;
+}
+#사상구{
+    position: absolute;
+    top: 461px; right: 455px;
+}
+#사상구:hover{
+    transform: scale(1.1);
+    z-index: 3;
+}
+#북구{
+    position: absolute;
+    top: 326px; right: 400px;
+}
+#북구:hover{
+    transform: scale(1.1);
+    z-index: 3;
+}
+#금정구{
+    position: absolute;
+    top: 282px; right: 290px;
+    z-index: 0.5;
+}
+#금정구:hover{
+    transform: scale(1.1);
+    z-index: 3;
+}
+#기장군{
+    position: absolute;
+    top: 150px; right: 72px;
+    z-index: 0;
+}
+#기장군:hover{
+    transform: scale(1.1);
+    z-index: 3;
+}
+#해운대구{
+    position: absolute;
+    top: 373px; right: 197px;
+}
+#해운대구:hover{
+    transform: scale(1.1);
+    z-index: 3;
+}
+#동래구{
+    position: absolute;
+    top: 411px; right: 323px;
+}
+#동래구:hover{
+    transform: scale(1.1);
+    z-index: 3;
+}
+#진구{
+    position: absolute;
+    top: 457px; right: 363px;
+}
+#진구:hover{
+    transform: scale(1.1);
+    z-index: 3;
+}
+#연제구{
+    position: absolute;
+    top: 456px; right: 328px;
+    z-index: 2;
+}
+#연제구:hover{
+    transform: scale(1.1);
+    z-index: 3;
+}
+#수영구{
+    position: absolute;
+    top: 481px; right: 293px;
+    z-index: 3;
+}
+#수영구:hover{
+    transform: scale(1.1);
+    z-index: 3;
+}
+#서구{
+    position: absolute;
+    top: 554px; right: 442px;
+}
+#서구:hover{
+    transform: scale(1.1);
+    z-index: 3;
+}
+#동구{
+    position: absolute;
+    top: 541px; right: 392px;
+}
+#동구:hover{
+    transform: scale(1.1);
+    z-index: 3;
+}
+#남구{
+    position: absolute;
+    top: 520px; right: 305px;
+}
+#남구:hover{
+    transform: scale(1.1);
+    z-index: 3;
+}
+#중구{
+    position: absolute;
+    top: 597px; right: 409px;
+}
+#중구:hover{
+    transform: scale(1.1);
+    z-index: 3;
+}
+#영도구{
+    position: absolute;
+    top: 616px; right: 342px;
+}
+#영도구:hover{
+    transform: scale(1.1);
+    z-index: 3;
+}
