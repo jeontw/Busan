@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>맥도생태공원</title>
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=ee6abb88fdd6d727fad00b04818744e3">
+    </script>
+</head>
+<link rel="stylesheet" href="../sights.css">
+<body>
+    <div id= "container">
+        <div id="header">
+            <div id="logo">
+                <a href="/TW/지도/html/HelloBusan.html"><img id="dsu" src="/icon/동서대로고.jpg" alt="HOME" title="HOME"></a>
+            </div>
+            <div id="location">
+                <a class="head_a" href="/Place/Place_1.html" target="_blank"><button class="head_but">명 소</button></a>
+            </div>
+            <div id="food">
+                <a class="head_a" href="/Restaurant/Restaurant_1.html" target="_blank"><button class="head_but">맛 집</button></a>
+            </div>
+            <div id="festival">
+                <a class="head_a" href="/TW/지도/html/HelloBusan.html"><button class="head_but">지 도</button></a>
+            </div>
+            <div id="search">
+                <form id="form1" name="search" onsubmit="return searchLocation()">
+                    <input id="sch" type="text" placeholder="검색">
+                </form>
+            </div>
+            <div id="mypage">
+                <a href="/TW/로그인/login.html"><img id="mypagelogo" src="/icon/마이페이지.png" alt="마이페이지"></a>
+            </div>
+        </div>
+        <div id= "title">
+            <h1>다양한 생태계를 품다<br>맥도생태공원의 생태 환경 탐방</h1>
+        </div>
+        <div class = "picture">
+            <img id="picture_item_1" src="https://www.visitbusan.net/uploadImgs/files/cntnts/20230713150615959" alt="">
+        </div>
+        <div class="descript" id="descript_1">
+            부산의 서쪽 낙동강변에는 저마다 특색을 가진 6개의 생태공원이 있다. 그 중 맥도생태공원은 잘 알려져 있지 않은 곳이다.
+            맥도생태공원은 공원이 그리 크지 않아서 공원을 천천히 걸어도 1시간 30분을 넘기지 않기 때문에 걷는 것을 가장 추천한다.처음 맥도생태공원을 찾는 여행자들에게 추천하는 3가지 길이 있다. 
+        </div>
+        <div class ="picture" id="picture_2">
+            <img class ="picture_item_2" src="https://www.visitbusan.net/uploadImgs/files/cntnts/20230713150616200_wufrotr" alt="">
+            <img class ="picture_item_2" src="https://www.visitbusan.net/uploadImgs/files/cntnts/20230713150617197_wufrotr" alt="">
+        </div>
+        <div class="descript" id="descript_2">
+            첫 번째 길은 제방둑길에 조성된 벚꽃길과 그 아래 메타세쿼이아 길이다. 제방둑길은 봄도 좋지만 한적하게 걸으며 여유로움을 즐기기에는 늦여름과 가을이 좋다.두 번째 길은 낙동강변을 따라 걷는 수변 오솔길과 산책로다. 공원에서 강변쪽으로 10분 정도 걸어가면 산책로와 쉼터도 잘 조성되어 있다. 중간 중간 낙동강 바로 옆을 끼고 걸을 수 있는 길도 있다. 마지막은 생태공원 가운데 연꽃단지와 수생식물원 사이에 조성된 데크길이다.
+        </div>
+        <div id="information">
+            <div id="map"></div>
+            <div id="guide">
+                <div id="guide_info">
+                    <div id = "guide_left">
+                        <div>주소</div>
+                        <div>휴무일</div>
+                        <div>이용요금</div>
+                        <div>운영시간</div>
+                    </div>
+                    <div id = "guide_right">
+                        <div>부산광역시 강서구 대저2동 1200-32</div>
+                        <div>연중무휴</div>
+                        <div>무료</div>
+                        <div>상시</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="bottom">
+            <div id="site">
+                <a href="https://bto.or.kr/kor/Main.do" target="_blank" title="부산관광공사 바로가기"><img class="bot" src="/icon/부산관광공사.png" alt="부산관광공사"></a>&nbsp;&nbsp;&nbsp;
+                <a href="https://youtube.com/@busan_is_good?si=lN-pwJgqLTfJ-J5P" target="_blank" title="부산 공식유튜브 바로가기"><img class="bot" src="/icon/유튜브 아이콘.png" alt="부산공식유튜브"></a>&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="https://www.instagram.com/busancity?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" title="부산 공식인스타그램 바로가기"><img class="bot" src="/icon/인스타 아이콘.png" alt="부산공식인스타그램"></a>
+            </div>
+            <div id="reference">
+                https://www.flaticon.com/kr/<br>https://visitbusan.net/kr/index.do<br>https://www.siksinhot.com/
+            </div>
+            <div id="weather">
+                <div id="weather_info"></div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const API_KEY = '05c6877ec7d415b3bb614c54745fefb5';
+        const LATITUDE = 35.1796;
+        const LONGITUDE = 129.0756;
+        const LOCATION_NAME = "부산";
+
+        document.addEventListener('DOMContentLoaded', () => {
+            getWeather(LATITUDE, LONGITUDE);
+        });
+
+        const getWeather = (lat, lon) => {
+            fetch(
+                `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric&lang=kr`
+            )
+            .then(response => response.json())
+            .then((data) => {
+                console.log(data);
+                displayWeather(data);
+            });
+        }
+
+        const displayWeather = (data) => {
+            const temperature = data.main.temp;
+            const iconCode = data.weather[0].icon;
+            const iconUrl = `http://openweathermap.org/img/wn/${iconCode}@2x.png`;
+
+            let weatherInfo = document.getElementById('weather_info');
+            weatherInfo.innerHTML = `
+                <img src="${iconUrl}" alt="Weather Icon">
+                <div>
+                    <p>${LOCATION_NAME}</p>
+                    <p>${temperature}°C</p>
+                </div>
+            `;
+
+            let container = document.getElementById('map');
+            let options = {
+                center: new kakao.maps.LatLng(35.15234, 128.9549),
+                level: 3
+            };
+            let map = new kakao.maps.Map(container, options);
+            let markerPosition = new kakao.maps.LatLng(35.15234, 128.9549)
+            let marker = new kakao.maps.Marker({
+                position : markerPosition
+            })
+            marker.setMap(map)
+        }
+    </script>
+</body>
+</html>

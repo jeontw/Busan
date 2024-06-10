@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>방코</title>
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=5499d68116f0608c17f78697ee266efe"></script>
+</head>
+<link rel="stylesheet" href="../Restaurant_explan.css">
+<body>
+    <div id= "container">
+        <div id="header">
+            <div id="logo">
+                <a href="/TW/지도/html/HelloBusan.html"><img id="dsu" src="/icon/동서대로고.jpg" alt="HOME" title="HOME"></a>
+            </div>
+            <div id="location">
+                <a class="head_a" href="/Place/Place_1.html" target="_blank"><button class="head_but">명 소</button></a>
+            </div>
+            <div id="food">
+                <a class="head_a" href="/Restaurant/Restaurant_1.html" target="_blank"><button class="head_but">맛 집</button></a>
+            </div>
+            <div id="festival">
+                <a class="head_a" href="/TW/지도/html/HelloBusan.html"><button class="head_but">지 도</button></a>
+            </div>
+            <div id="search">
+                <form id="form1" name="search" onsubmit="return searchLocation()">
+                    <input id="sch" type="text" placeholder="검색">
+                </form>
+            </div>
+            <div id="mypage">
+                <a href="/TW/로그인/login.html"><img id="mypagelogo" src="/icon/마이페이지.png" alt="마이페이지"></a>
+            </div>
+        </div>
+        <div id= "title">
+            <h1>방코</h1>
+        </div>
+        <div class = "picture">
+            <img id="picture_item_1" src="https://visitbusan.net/uploadImgs/files/cntnts/20240415163345618_ttiel" alt="">
+        </div>
+        <div class="descript" id="descript_1">특이한 외관의 건물은 화덕에 구운 피자와 파스타를 만드는 곳이다. 신선한 재료와 새로운 조리법을 사용하여 풍부하고 담백한 맛을 내는 것이 특징이다. 트러플로 향을 낸 피자와 블루치즈를 사용한 피자가 대표메뉴이다.
+        </div>
+        <div class ="picture" id="picture_2">
+            <img class ="picture_item_2" src="https://visitbusan.net/uploadImgs/files/cntnts/20200818100410956_wufrotr" alt="">
+            <img class ="picture_item_2" src="https://visitbusan.net/uploadImgs/files/cntnts/20240415163346533_wufrotr" alt="">
+        </div>
+        <div id="information">
+            <div id="map"></div>
+            <div id="guide">
+                <div id="guide_info">
+                    <div id="guide_left">
+                        <div>대표메뉴</div>
+                        <div>전화번호</div>
+                        <div>운영시간</div>
+                        <div>&nbsp;</div>
+                        <div>주소</div>
+                        <div>휴무일</div> 
+                    </div>
+                    <div id="guide_right">
+                        <div>풍기 트러플 피자, 무화과 블루치즈 피자</div>
+                        <div>051-271-2068</div>
+                        <div>월-금 11:30-14:30/17:00-20:30</div>
+                        <div>토-일/공휴일 11:30-20:30</div>
+                        <div>부산광역시 강서구 새진목길 51</div>
+                        <div>월요일</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="bottom">
+            <div id="site">
+                <a href="https://bto.or.kr/kor/Main.do" target="_blank" title="부산관광공사 바로가기"><img class="bot" src="/icon/부산관광공사.png" alt="부산관광공사"></a>&nbsp;&nbsp;&nbsp;
+                <a href="https://youtube.com/@busan_is_good?si=lN-pwJgqLTfJ-J5P" target="_blank" title="부산 공식유튜브 바로가기"><img class="bot" src="/icon/유튜브 아이콘.png" alt="부산공식유튜브"></a>&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="https://www.instagram.com/busancity?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" title="부산 공식인스타그램 바로가기"><img class="bot" src="/icon/인스타 아이콘.png" alt="부산공식인스타그램"></a>
+            </div>
+            <div id="reference">
+                https://www.flaticon.com/kr/<br>https://visitbusan.net/kr/index.do<br>https://www.siksinhot.com/
+            </div>
+            <div id="weather">
+                <div id="weather_info"></div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <script>
+        const API_KEY = '05c6877ec7d415b3bb614c54745fefb5';
+        const LATITUDE = 35.1796;
+        const LONGITUDE = 129.0756;
+        const LOCATION_NAME = "부산";
+
+        document.addEventListener('DOMContentLoaded', () => {
+            getWeather(LATITUDE, LONGITUDE);
+        });
+
+        const getWeather = (lat, lon) => {
+            fetch(
+                `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric&lang=kr`
+            )
+            .then(response => response.json())
+            .then((data) => {
+                console.log(data);
+                displayWeather(data);
+            });
+        }
+
+        const displayWeather = (data) => {
+            const temperature = data.main.temp;
+            const iconCode = data.weather[0].icon;
+            const iconUrl = `http://openweathermap.org/img/wn/${iconCode}@2x.png`;
+
+            let weatherInfo = document.getElementById('weather_info');
+            weatherInfo.innerHTML = `
+                <img src="${iconUrl}" alt="Weather Icon">
+                <div>
+                    <p>${LOCATION_NAME}</p>
+                    <p>${temperature}°C</p>
+                </div>
+            `;
+        }
+
+        let container = document.getElementById('map');
+
+        let options = {
+            center: new kakao.maps.LatLng(35.115443, 128.922249),
+            level: 3
+        };
+        
+        let map = new kakao.maps.Map(container, options);
+
+        let marker = new kakao.maps.Marker({
+            position: new kakao.maps.LatLng(35.115443, 128.922249)
+        });
+
+        marker.setMap(map);
+    </script>
+</body>
+</html>

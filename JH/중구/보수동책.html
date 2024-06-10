@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>보수동책방골목</title>
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=ee6abb88fdd6d727fad00b04818744e3">
+    </script>
+</head>
+<link rel="stylesheet" href="../sights.css">
+<body>
+    <div id= "container">
+        <div id="header">
+            <div id="logo">
+                <a href="/TW/지도/html/HelloBusan.html"><img id="dsu" src="/icon/동서대로고.jpg" alt="HOME" title="HOME"></a>
+            </div>
+            <div id="location">
+                <a class="head_a" href="/Place/Place_1.html" target="_blank"><button class="head_but">명 소</button></a>
+            </div>
+            <div id="food">
+                <a class="head_a" href="/Restaurant/Restaurant_1.html" target="_blank"><button class="head_but">맛 집</button></a>
+            </div>
+            <div id="festival">
+                <a class="head_a" href="/TW/지도/html/HelloBusan.html"><button class="head_but">지 도</button></a>
+            </div>
+            <div id="search">
+                <form id="form1" name="search" onsubmit="return searchLocation()">
+                    <input id="sch" type="text" placeholder="검색">
+                </form>
+            </div>
+            <div id="mypage">
+                <a href="/TW/로그인/login.html"><img id="mypagelogo" src="/icon/마이페이지.png" alt="마이페이지"></a>
+            </div>
+        </div>
+        <div id= "title">
+            <h1>마음에 책갈피 하나를 꽂다<br>보수동책방골목
+            </h1>
+        </div>
+        <div class = "picture">
+            <img id="picture_item_1" src="https://www.visitbusan.net/uploadImgs/files/cntnts/20191225153956839_oen" alt="">
+        </div>
+        <div class="descript" id="descript_1">
+            부산 중구 보수동에 위치한 보수동책방골목은 한국전쟁 당시 부산이 임시수도가 되었을 때 조성된 곳이다. 이북에서 피난 온 어느 부부가 박스를 깔고 각종 잡지와 헌책 등으로 노점을 열면서 그 역사가 시작되었다. 종전 후 부산으로 온 많은 피란민들이 국제시장에 정착하여 힘든 삶을 살던 시절, 학생들과 지식인들은 공부를 하고 싶어도 책을 구하기 어려웠다. 때문에 노점의 헌책방은 성황을 이루었고 차츰 다른 피란민들이 가세하여 하나둘 서점이 늘어난 것이 지금의 책방골목이 되었다.
+        </div>
+        <div class ="picture" id="picture_2">
+            <img class ="picture_item_2" src="https://www.visitbusan.net/uploadImgs/files/cntnts/20191225153959575_oen" alt="">
+            <img class ="picture_item_2" src="https://www.visitbusan.net/uploadImgs/files/cntnts/20191225154003658_wufrotr" alt="">
+        </div>
+        <div class="descript" id="descript_2">
+            보수동책방골목은 입구 풍경부터 예스러움이 가득 묻어난다. 간판의 글씨체며 켜켜이 쌓여있는 책들이 지나온 세월을 보여준다. 자동화된 차가운 기계의 감촉이 모든 것을 지배하는 이 디지털 시대에 한줄기 따뜻한 아날로그 감성을 전해주는 듯하다.
+        </div>
+        <div id="information">
+            <div id="map"></div>
+            <div id="guide">
+                <div id="guide_info">
+                    <div id = "guide_left">
+                        <div>주소</div>
+                        <div>휴무일</div>
+                        <div>&nbsp;</div>
+                        <div>이용요금</div>
+                        <div>운영시간</div>
+                    </div>
+                    <div id = "guide_right">
+                        <div>부산광역시 중구 책방골목길 16</div>
+                        <div>1,3주 화요일, 신정 당일,</div>
+                        <div>구정, 추석 다음날까지 2일</div>
+                        <div>무료(도서구입 별도)</div>
+                        <div>가게별 상이(20:00 전후 업무 종료)</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="bottom">
+            <div id="site">
+                <a href="https://bto.or.kr/kor/Main.do" target="_blank" title="부산관광공사 바로가기"><img class="bot" src="/icon/부산관광공사.png" alt="부산관광공사"></a>&nbsp;&nbsp;&nbsp;
+                <a href="https://youtube.com/@busan_is_good?si=lN-pwJgqLTfJ-J5P" target="_blank" title="부산 공식유튜브 바로가기"><img class="bot" src="/icon/유튜브 아이콘.png" alt="부산공식유튜브"></a>&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="https://www.instagram.com/busancity?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" title="부산 공식인스타그램 바로가기"><img class="bot" src="/icon/인스타 아이콘.png" alt="부산공식인스타그램"></a>
+            </div>
+            <div id="reference">
+                https://www.flaticon.com/kr/<br>https://visitbusan.net/kr/index.do<br>https://www.siksinhot.com/
+            </div>
+            <div id="weather">
+                <div id="weather_info"></div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const API_KEY = '05c6877ec7d415b3bb614c54745fefb5';
+        const LATITUDE = 35.1796;
+        const LONGITUDE = 129.0756;
+        const LOCATION_NAME = "부산";
+
+        document.addEventListener('DOMContentLoaded', () => {
+            getWeather(LATITUDE, LONGITUDE);
+        });
+
+        const getWeather = (lat, lon) => {
+            fetch(
+                `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric&lang=kr`
+            )
+            .then(response => response.json())
+            .then((data) => {
+                console.log(data);
+                displayWeather(data);
+            });
+        }
+
+        const displayWeather = (data) => {
+            const temperature = data.main.temp;
+            const iconCode = data.weather[0].icon;
+            const iconUrl = `http://openweathermap.org/img/wn/${iconCode}@2x.png`;
+
+            let weatherInfo = document.getElementById('weather_info');
+            weatherInfo.innerHTML = `
+                <img src="${iconUrl}" alt="Weather Icon">
+                <div>
+                    <p>${LOCATION_NAME}</p>
+                    <p>${temperature}°C</p>
+                </div>
+            `;
+
+            let container = document.getElementById('map');
+            let options = {
+                center: new kakao.maps.LatLng(35.099639, 129.029623),
+                level: 3
+            };
+            let map = new kakao.maps.Map(container, options);
+            let markerPosition = new kakao.maps.LatLng(35.099639, 129.029623)
+            let marker = new kakao.maps.Marker({
+                position : markerPosition
+            })
+            marker.setMap(map)
+        }
+    </script>
+</body>
+</html>

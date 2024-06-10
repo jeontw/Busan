@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>연제구</title>
+    <link rel="stylesheet" href="../default.css">
+</head>
+<body>
+    <div id="wrap">
+        <div id="center">
+            <div id="header">
+                <div id="logo">
+                    <a href="/TW/지도/html/HelloBusan.html"><img id="dsu" src="/icon/동서대로고.jpg" alt="HOME" title="HOME"></a>
+                </div>
+                <div id="location">
+                    <a class="head_a" href="/Place/Place_1.html" target="_blank"><button class="head_but">명 소</button></a>
+                </div>
+                <div id="food">
+                    <a class="head_a" href="/Restaurant/Restaurant_1.html" target="_blank"><button class="head_but">맛 집</button></a>
+                </div>
+                <div id="festival">
+                    <a class="head_a" href="/TW/지도/html/HelloBusan.html"><button class="head_but">지 도</button></a>
+                </div>
+                <div id="search">
+                    <form id="form1" name="search" onsubmit="return searchLocation()">
+                        <input id="sch" type="text" placeholder="검색">
+                    </form>
+                </div>
+                <div id="mypage">
+                    <a href="/TW/로그인/login.html"><img id="mypagelogo" src="/icon/마이페이지.png" alt="마이페이지"></a>
+                </div>
+            </div>
+            <div id="main_picture">
+                <div id="picture">
+                    <img src="../busan_images/연제구/연제구 메인.JPG" alt="연제구 메인 사진">
+                </div>
+            </div>
+            <div id="re_lo_head">
+                <h1 class="assi_title">――인기 명소――――――――――――――――――――――――</h1>
+            </div>
+            <div id="recommend_location">
+                <div class="re_item1">
+                    <img class="item1_img" src="../busan_images/연제구/아시아드주경기장.jpg" alt="아시아드주경기장">
+                    <a href="/JH/연제구/아시아드.html"><div class="description">
+                        건강한 부산,<br>활기찬 도시!<br>아시아드주경기장
+                    </div></a>
+                </div>
+                <div class="re_item1">
+                    <img class="item1_img" src="../busan_images/연제구/배산숲길.jpg" alt="배산숲길">
+                    <a href="/JH/연제구/배산숲길.html"><div class="description">
+                        초보들의 등산 입문 코스<br>배산숲길
+                    </div></a>
+                </div>
+                <div class="re_item1">
+                    <img class="item1_img" src="../busan_images/연제구/온천천산책로.jpg" alt="온천천산책로">
+                    <a href="/JH/연제구/온천천산책.html"><div class="description">
+                        도심 속 힐링 공간<br>온천천산책로
+                    </div></a>
+                </div>
+                <div class="re_item1">
+                    <img class="item1_img" src="../busan_images/연제구/온천천카페거리.jpg" alt="온천천카페거리">
+                    <a href="/JH/연제구/온천천카페.html"><div class="description">
+                        부산 도심 속에서<br>커피와 여유를<br>느낄 수 있는<br>온천천카페거리
+                    </div></a>
+                </div>
+            </div>
+            <div id="re_fo_head">
+                <h1 class="assi_title">――인기 맛집――――――――――――――――――――――――</h1>
+            </div>
+            <div id="recommend_food">
+                <div class="re_item2">
+                    <img class="item2_img" src="../busan_restaurant/연제구/국제밀면 본점.jpg" alt="국제밀면 본점">
+                    <a href="../Restaurant_explan/연제구/국제밀면.html"><div class="description">국제밀면 본점
+                    </div></a>
+                </div>
+                <div class="re_item2">
+                    <img class="item2_img" src="../busan_restaurant/연제구/도화.jpg" alt="도화">
+                    <a href="../Restaurant_explan/연제구/도화.html"><div class="description">도화
+                    </div></a>
+                </div>
+                <div class="re_item2">
+                    <img class="item2_img" src="../busan_restaurant/연제구/오소리순대.jpg" alt="오소리순대">
+                    <a href="../Restaurant_explan/연제구/오소리순대.html"><div class="description">오소리순대
+                    </div></a>
+                </div>
+                <div class="re_item2">
+                    <img class="item2_img" src="../busan_restaurant/연제구/청송집.jpg" alt="청송집">
+                    <a href="../Restaurant_explan/연제구/청송집.html"><div class="description">청송집
+                    </div></a>
+                </div>
+            </div>
+            <div id="bottom">
+                <div id="site">
+                    <a href="https://bto.or.kr/kor/Main.do" target="_blank" title="부산관광공사 바로가기"><img class="bot" src="/icon/부산관광공사.png" alt="부산관광공사"></a>&nbsp;&nbsp;&nbsp;
+                    <a href="https://youtube.com/@busan_is_good?si=lN-pwJgqLTfJ-J5P" target="_blank" title="부산 공식유튜브 바로가기"><img class="bot" src="/icon/유튜브 아이콘.png" alt="부산공식유튜브"></a>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="https://www.instagram.com/busancity?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" title="부산 공식인스타그램 바로가기"><img class="bot" src="/icon/인스타 아이콘.png" alt="부산공식인스타그램"></a>
+                </div>
+                <div id="reference">
+                    https://www.flaticon.com/kr/<br>https://visitbusan.net/kr/index.do<br>https://www.siksinhot.com/
+                </div>
+                <div id="weather">
+                    <div id="weather_info"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const API_KEY = '05c6877ec7d415b3bb614c54745fefb5';
+        const LATITUDE = 35.1796;
+        const LONGITUDE = 129.0756;
+        const LOCATION_NAME = "부산";
+
+        document.addEventListener('DOMContentLoaded', () => {
+            getWeather(LATITUDE, LONGITUDE);
+        });
+
+        const getWeather = (lat, lon) => {
+            fetch(
+                `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric&lang=kr`
+            )
+            .then(response => response.json())
+            .then((data) => {
+                console.log(data);
+                displayWeather(data);
+            });
+        }
+
+        const displayWeather = (data) => {
+            const temperature = data.main.temp;
+            const iconCode = data.weather[0].icon;
+            const iconUrl = `http://openweathermap.org/img/wn/${iconCode}@2x.png`;
+
+            let weatherInfo = document.getElementById('weather_info');
+            weatherInfo.innerHTML = `
+                <img src="${iconUrl}" alt="Weather Icon">
+                <div>
+                    <p>${LOCATION_NAME}</p>
+                    <p>${temperature}°C</p>
+                </div>
+            `;
+        }
+    </script>
+    <script src="../sreach_main.js"></script>
+</body>
+</html>

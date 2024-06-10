@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>아시아드</title>
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=ee6abb88fdd6d727fad00b04818744e3">
+    </script>
+</head>
+<link rel="stylesheet" href="../sights.css">
+<body>
+    <div id= "container">
+        <div id="header">
+            <div id="logo">
+                <a href="/TW/지도/html/HelloBusan.html"><img id="dsu" src="/icon/동서대로고.jpg" alt="HOME" title="HOME"></a>
+            </div>
+            <div id="location">
+                <a class="head_a" href="/Place/Place_1.html" target="_blank"><button class="head_but">명 소</button></a>
+            </div>
+            <div id="food">
+                <a class="head_a" href="/Restaurant/Restaurant_1.html" target="_blank"><button class="head_but">맛 집</button></a>
+            </div>
+            <div id="festival">
+                <a class="head_a" href="/TW/지도/html/HelloBusan.html"><button class="head_but">지 도</button></a>
+            </div>
+            <div id="search">
+                <form id="form1" name="search" onsubmit="return searchLocation()">
+                    <input id="sch" type="text" placeholder="검색">
+                </form>
+            </div>
+            <div id="mypage">
+                <a href="/TW/로그인/login.html"><img id="mypagelogo" src="/icon/마이페이지.png" alt="마이페이지"></a>
+            </div>
+        </div>
+        <div id= "title">
+            <h1>건강한 부산, 활기찬 도시! 아시아드주경기장
+            </h1>
+        </div>
+        <div class = "picture">
+            <img id="picture_item_1" src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2Fdata29%2F2007%2F8%2F22%2F261%2Fnpe4_thek2m.jpg&type=sc960_832" alt="">
+        </div>
+        <div class="descript" id="descript_1">
+            아시아드주경기장은 부산광역시 연제구 거제동에 위치한 대형 다목적 경기장이다.<br> 2002년 부산 아시안게임과 FIFA 월드컵을 위해 건설되었으며, 약 5만 3천석의 좌석을 보유하고 있다.<br> 이 경기장은 축구 경기뿐만 아니라 콘서트, 문화 행사 등 다양한 이벤트가 열리는 장소로 활용되고 있다.<br>특징은 현대적이고 독특한 건축 디자인이 있으며, 밤에는 조명이 더해져 아름다운 모습을 자랑한다.
+        </div>
+        <div class ="picture" id="picture_2">
+            <img class ="picture_item_2" src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMjAzMzBfMjkw%2FMDAxNjQ4NTkzNzUxNTEz.Q4x8vDbuqT69zIAQjY8KRtUCfBibgjOGSdFFNDTf7Zog.FOkTf2hlQe70x2ormKtvBbZZktOoUtrhvXG4bCjzJJwg.JPEG.fllfll2%2F%25BC%25F6%25C1%25A4%25B5%25CA_%25B9%25AB%25B4%25EB%2528%25C6%25C4%25C5%25A9%25C4%25DC%25BC%25AD%25C6%25AE%2529-1.jpg&type=sc960_832" alt="">
+            <img class ="picture_item_2" src="https://search.pstatic.net/common/?src=http%3A%2F%2Fimage.nmv.naver.net%2Fblog_2023_07_16_2925%2Fa01ad0ca-23a2-11ee-92d9-80615f0c46b2_01.jpg&type=sc960_832" alt="">
+        </div>
+        <div class="descript" id="descript_2">
+            접근성이 뛰어나 부산 지하철 3호선 종합운동장역과 연결되어 있어 대중교통을 이용하기에 편리하다.<br>아시아드주경기장은 부산사직종합운동장과 사직야구장 등 다양한 스포츠 시설과 인접해 있어 종합 스포츠 단지로서의 역할을 하고 있다.<br> 이 경기장은 부산 시민들과 관광객들에게 스포츠와 문화를 즐길 수 있는 중요한 장소로 자리 잡고 있다.
+        </div>
+        <div id="information">
+            <div id="map"></div>
+            <div id="guide">
+                <div id="guide_info">
+                    <div id = "guide_left">
+                        <div>주소</div>
+                        <div>휴무일</div>
+                        <div>이용요금</div>
+                        <div>운영시간</div>
+                    </div>
+                    <div id = "guide_right">
+                        <div>부산 연제구 월드컵대로 344</div>
+                        <div>연중무휴</div>
+                        <div>홈페이지 참조</div>
+                        <div>홈페이지 참조</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="bottom">
+            <div id="site">
+                <a href="https://bto.or.kr/kor/Main.do" target="_blank" title="부산관광공사 바로가기"><img class="bot" src="/icon/부산관광공사.png" alt="부산관광공사"></a>&nbsp;&nbsp;&nbsp;
+                <a href="https://youtube.com/@busan_is_good?si=lN-pwJgqLTfJ-J5P" target="_blank" title="부산 공식유튜브 바로가기"><img class="bot" src="/icon/유튜브 아이콘.png" alt="부산공식유튜브"></a>&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="https://www.instagram.com/busancity?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" title="부산 공식인스타그램 바로가기"><img class="bot" src="/icon/인스타 아이콘.png" alt="부산공식인스타그램"></a>
+            </div>
+            <div id="reference">
+                https://www.flaticon.com/kr/<br>https://visitbusan.net/kr/index.do<br>https://www.siksinhot.com/
+            </div>
+            <div id="weather">
+                <div id="weather_info"></div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const API_KEY = '05c6877ec7d415b3bb614c54745fefb5';
+        const LATITUDE = 35.1796;
+        const LONGITUDE = 129.0756;
+        const LOCATION_NAME = "부산";
+
+        document.addEventListener('DOMContentLoaded', () => {
+            getWeather(LATITUDE, LONGITUDE);
+        });
+
+        const getWeather = (lat, lon) => {
+            fetch(
+                `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric&lang=kr`
+            )
+            .then(response => response.json())
+            .then((data) => {
+                console.log(data);
+                displayWeather(data);
+            });
+        }
+
+        const displayWeather = (data) => {
+            const temperature = data.main.temp;
+            const iconCode = data.weather[0].icon;
+            const iconUrl = `http://openweathermap.org/img/wn/${iconCode}@2x.png`;
+
+            let weatherInfo = document.getElementById('weather_info');
+            weatherInfo.innerHTML = `
+                <img src="${iconUrl}" alt="Weather Icon">
+                <div>
+                    <p>${LOCATION_NAME}</p>
+                    <p>${temperature}°C</p>
+                </div>
+            `;
+
+            let container = document.getElementById('map');
+            let options = {
+                center: new kakao.maps.LatLng(35.19008, 129.05833),
+                level: 3
+            };
+        
+            let map = new kakao.maps.Map(container, options);
+            let markerPosition = new kakao.maps.LatLng(35.19008, 129.05833)
+            let marker = new kakao.maps.Marker({
+                position : markerPosition
+            })
+            marker.setMap(map)
+        }
+    </script>
+</body>
+</html>

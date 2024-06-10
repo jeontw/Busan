@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>부산어촌민속관</title>
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=ee6abb88fdd6d727fad00b04818744e3">
+    </script>
+</head>
+<link rel="stylesheet" href="../sights.css">
+<body>
+    <div id= "container">
+        <div id="header">
+            <div id="logo">
+                <a href="/TW/지도/html/HelloBusan.html"><img id="dsu" src="/icon/동서대로고.jpg" alt="HOME" title="HOME"></a>
+            </div>
+            <div id="location">
+                <a class="head_a" href="/Place/Place_1.html" target="_blank"><button class="head_but">명 소</button></a>
+            </div>
+            <div id="food">
+                <a class="head_a" href="/Restaurant/Restaurant_1.html" target="_blank"><button class="head_but">맛 집</button></a>
+            </div>
+            <div id="festival">
+                <a class="head_a" href="/TW/지도/html/HelloBusan.html"><button class="head_but">지 도</button></a>
+            </div>
+            <div id="search">
+                <form id="form1" name="search" onsubmit="return searchLocation()">
+                    <input id="sch" type="text" placeholder="검색">
+                </form>
+            </div>
+            <div id="mypage">
+                <a href="/TW/로그인/login.html"><img id="mypagelogo" src="/icon/마이페이지.png" alt="마이페이지"></a>
+            </div>
+        </div>
+        <div id= "title">
+            <h1>어촌문화를 꽃피운 선조들의 삶을<br>엿볼 수 있는 이곳, 부산어촌민속관</h1>
+        </div>
+        <div class = "picture">
+            <img id="picture_item_1" src="https://www.visitbusan.net/uploadImgs/files/cntnts/20191226184130120" alt="">
+        </div>
+        <div class="descript" id="descript_1">
+            부산 어촌민속관은 대한민국 부산광역시 강서구 장평로 48번길에 위치한 민속 전시관으로, 부산 어촌 생활과 문화를 소개하는 곳이다.<br> 이곳은 부산의 어촌 지역에서 전해져 내려온 전통적인 생활 양식과 문화를 전시하고 보존하여 후세에 전하고자 하는 목적으로 운영되고 있다.<br>부산 어촌민속관은 전통 주택과 어구, 어민의 생활 도구, 어로 도구, 각종 어촌 생활용품 등이 전시되어 있으며, 어촌 생활의 역사와 변천 과정을 엿볼 수 있다.<br> 
+        </div>
+        <div class ="picture" id="picture_2">
+            <img class ="picture_item_2" src="https://www.visitbusan.net/uploadImgs/files/cntnts/20191226184133183_wufrotr" alt="">
+            <img class ="picture_item_2" src="https://www.visitbusan.net/uploadImgs/files/cntnts/20191226184134486_wufrotr" alt="">
+        </div>
+        <div class="descript" id="descript_2">
+            또한, 전통 어촌의 미식문화도 소개되어 있어 어촌 지역의 특색 있는 음식을 맛볼 수도 있다.<br>부산 어촌민속관은 지역 주민들과 관광객들에게 부산 어촌 문화와 생활을 체험할 수 있는 장소로서 인기가 있으며, 부산의 다채로운 어촌 문화를 경험하고 이해할 수 있는 장소로 자리매김하고 있다.<br>
+        </div>
+        <div id="information">
+            <div id="map"></div>
+            <div id="guide">
+                <div id="guide_info">
+                    <div id = "guide_left">
+                        <div>주소</div>
+                        <div>휴무일</div>
+                        <div>이용요금</div>
+                        <div>운영시간</div>
+                    </div>
+                    <div id = "guide_right">
+                        <div>부산광역시 북구 학사로 128</div>
+                        <div>매주 월요일, 1월1일</div>
+                        <div>무료</div>
+                        <div>화-일 09:00-18:00(입장마감 17:00)</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="bottom">
+            <div id="site">
+                <a href="https://bto.or.kr/kor/Main.do" target="_blank" title="부산관광공사 바로가기"><img class="bot" src="/icon/부산관광공사.png" alt="부산관광공사"></a>&nbsp;&nbsp;&nbsp;
+                <a href="https://youtube.com/@busan_is_good?si=lN-pwJgqLTfJ-J5P" target="_blank" title="부산 공식유튜브 바로가기"><img class="bot" src="/icon/유튜브 아이콘.png" alt="부산공식유튜브"></a>&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="https://www.instagram.com/busancity?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" title="부산 공식인스타그램 바로가기"><img class="bot" src="/icon/인스타 아이콘.png" alt="부산공식인스타그램"></a>
+            </div>
+            <div id="reference">
+                https://www.flaticon.com/kr/<br>https://visitbusan.net/kr/index.do<br>https://www.siksinhot.com/
+            </div>
+            <div id="weather">
+                <div id="weather_info"></div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const API_KEY = '05c6877ec7d415b3bb614c54745fefb5';
+        const LATITUDE = 35.1796;
+        const LONGITUDE = 129.0756;
+        const LOCATION_NAME = "부산";
+
+        document.addEventListener('DOMContentLoaded', () => {
+            getWeather(LATITUDE, LONGITUDE);
+        });
+
+        const getWeather = (lat, lon) => {
+            fetch(
+                `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric&lang=kr`
+            )
+            .then(response => response.json())
+            .then((data) => {
+                console.log(data);
+                displayWeather(data);
+            });
+        }
+
+        const displayWeather = (data) => {
+            const temperature = data.main.temp;
+            const iconCode = data.weather[0].icon;
+            const iconUrl = `http://openweathermap.org/img/wn/${iconCode}@2x.png`;
+
+            let weatherInfo = document.getElementById('weather_info');
+            weatherInfo.innerHTML = `
+                <img src="${iconUrl}" alt="Weather Icon">
+                <div>
+                    <p>${LOCATION_NAME}</p>
+                    <p>${temperature}°C</p>
+                </div>
+            `;
+
+            let container = document.getElementById('map');
+            let options = {
+                center: new kakao.maps.LatLng(35.233726, 129.008549),
+                level: 3
+            };
+            let map = new kakao.maps.Map(container, options);
+            let markerPosition = new kakao.maps.LatLng(35.233726, 129.008549)
+            let marker = new kakao.maps.Marker({
+                position : markerPosition
+            })
+            
+            marker.setMap(map)
+        }
+    </script>
+</body>
+</html>

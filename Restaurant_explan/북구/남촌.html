@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>남촌</title>
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=5499d68116f0608c17f78697ee266efe"></script>
+</head>
+<link rel="stylesheet" href="../Restaurant_explan.css">
+<body>
+    <div id= "container">
+        <div id="header">
+            <div id="logo">
+                <a href="/TW/지도/html/HelloBusan.html"><img id="dsu" src="/icon/동서대로고.jpg" alt="HOME" title="HOME"></a>
+            </div>
+            <div id="location">
+                <a class="head_a" href="/Place/Place_1.html" target="_blank"><button class="head_but">명 소</button></a>
+            </div>
+            <div id="food">
+                <a class="head_a" href="/Restaurant/Restaurant_1.html" target="_blank"><button class="head_but">맛 집</button></a>
+            </div>
+            <div id="festival">
+                <a class="head_a" href="/TW/지도/html/HelloBusan.html"><button class="head_but">지 도</button></a>
+            </div>
+            <div id="search">
+                <form id="form1" name="search" onsubmit="return searchLocation()">
+                    <input id="sch" type="text" placeholder="검색">
+                </form>
+            </div>
+            <div id="mypage">
+                <a href="/TW/로그인/login.html"><img id="mypagelogo" src="/icon/마이페이지.png" alt="마이페이지"></a>
+            </div>
+        </div>
+        <div id= "title">
+            <h1>남촌</h1>
+        </div>
+        <div class = "picture">
+            <img id="picture_item_1" src="https://www.visitbusan.net/uploadImgs/files/cntnts/20240417155301384_ttiel" alt="">
+        </div>
+        <div class="descript" id="descript_1">청정지역인 지리산 아래 산청의 흑돼지만 사용하고 있는 믿을 수 있는 돼지구이전문점이다. 사용되는 흑돼지 자체가 일반적인 돼지고기와 식감과 맛의 차이가 많이 나며, 껍데기가 붙어 있는 오겹살 흑돼지 고기를 쓰는 것이 특징이다.</div>
+        <div class ="picture" id="picture_2">
+            <img class ="picture_item_2" src="https://www.visitbusan.net/uploadImgs/files/cntnts/20200819112645528_wufrotr" alt="">
+            <img class ="picture_item_2" src="https://www.visitbusan.net/uploadImgs/files/cntnts/20240417155301598_wufrotr" alt="">
+        </div>
+        <div id="information">
+            <div id="map"></div>
+            <div id="guide">
+                <div id="guide_info">
+                    <div id="guide_left">
+                        <div>대표메뉴</div>
+                        <div>전화번호</div>
+                        <div>운영시간</div>
+                        <div>주소</div>
+                        <div>휴무일</div> 
+                    </div>
+                    <div id="guide_right">
+                        <div>흑돼지</div>
+                        <div>051-335-9294</div>
+                        <div>11:00-22:00</div>
+                        <div>부산광역시 북구 금곡대로8번길 14</div>
+                        <div>명절 휴무</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="bottom">
+            <div id="site">
+                <a href="https://bto.or.kr/kor/Main.do" target="_blank" title="부산관광공사 바로가기"><img class="bot" src="/icon/부산관광공사.png" alt="부산관광공사"></a>&nbsp;&nbsp;&nbsp;
+                <a href="https://youtube.com/@busan_is_good?si=lN-pwJgqLTfJ-J5P" target="_blank" title="부산 공식유튜브 바로가기"><img class="bot" src="/icon/유튜브 아이콘.png" alt="부산공식유튜브"></a>&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="https://www.instagram.com/busancity?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" title="부산 공식인스타그램 바로가기"><img class="bot" src="/icon/인스타 아이콘.png" alt="부산공식인스타그램"></a>
+            </div>
+            <div id="reference">
+                https://www.flaticon.com/kr/<br>https://visitbusan.net/kr/index.do<br>https://www.siksinhot.com/
+            </div>
+            <div id="weather">
+                <div id="weather_info"></div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <script>
+        const API_KEY = '05c6877ec7d415b3bb614c54745fefb5';
+        const LATITUDE = 35.1796;
+        const LONGITUDE = 129.0756;
+        const LOCATION_NAME = "부산";
+
+        document.addEventListener('DOMContentLoaded', () => {
+            getWeather(LATITUDE, LONGITUDE);
+        });
+
+        const getWeather = (lat, lon) => {
+            fetch(
+                `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric&lang=kr`
+            )
+            .then(response => response.json())
+            .then((data) => {
+                console.log(data);
+                displayWeather(data);
+            });
+        }
+
+        const displayWeather = (data) => {
+            const temperature = data.main.temp;
+            const iconCode = data.weather[0].icon;
+            const iconUrl = `http://openweathermap.org/img/wn/${iconCode}@2x.png`;
+
+            let weatherInfo = document.getElementById('weather_info');
+            weatherInfo.innerHTML = `
+                <img src="${iconUrl}" alt="Weather Icon">
+                <div>
+                    <p>${LOCATION_NAME}</p>
+                    <p>${temperature}°C</p>
+                </div>
+            `;
+        }
+
+        let container = document.getElementById('map');
+
+        let options = {
+            center: new kakao.maps.LatLng(35.210751, 129.005926),
+            level: 1
+        };
+        
+        let map = new kakao.maps.Map(container, options);
+
+        let marker = new kakao.maps.Marker({
+            position: new kakao.maps.LatLng(35.210751, 129.005926)
+        });
+
+        marker.setMap(map);
+    </script>
+</body>
+</html>

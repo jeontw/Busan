@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로그인</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/51db22a717.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="페이지-컨테이너">
+        <div class="로그인-폼-컨테이너 그림자">
+            <div class="로그인-폼-오른쪽-영역">
+                <div class="상단-로고-영역"></div>
+                <h1 style="text-align: center;">로그인을 하려면 <br>회원가입을 해 주세요</h1>
+                <p>Busan Tour Guide</p>
+            </div>
+            <div class="로그인-폼-왼쪽-영역">
+                <div class="로그인-상단-영역">
+                    <span>계정이 없으신가요?</span>
+                    <button id="회원가입">프로필 만들기</button>
+                </div>
+                <div class="로그인-입력-컨테이너">
+                    <div class="로그인-입력-영역 입력-아이디">
+                        <i class="far fa-envelope"></i>
+                        <input id="email1" placeholder="이메일" type="text">
+                    </div>
+                    <div class="로그인-입력-영역 입력-비밀번호">
+                        <i class="fas fa-key"></i>
+                        <input id="password1" placeholder="비밀번호" type="password">
+                    </div>
+                </div>
+                <div class="로그인-버튼-영역">
+                    <button class="로그인-버튼" onclick="checkLogin()">로그인</button>
+                    <u>비밀번호를 잊으셨나요?</u>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="signupModal" class="모달">
+        <div class="모달-컨텐츠">
+            <span class="닫기">&times;</span>
+            <h2>회원가입</h2>
+            <div class="로그인-입력-컨테이너">
+                <div class="로그인-입력-영역 입력-아이디">
+                    <i class="far fa-envelope"></i>
+                    <input id="email2" placeholder="이메일" type="text">
+                </div>
+                <div class="로그인-입력-영역 입력-비밀번호">
+                    <i class="fas fa-key"></i>
+                    <input id="password2" placeholder="비밀번호" type="password">
+                </div>
+                <div class="로그인-입력-영역 입력-비밀번호-확인">
+                    <i class="fas fa-key"></i>
+                    <input id="passwordConfirm" placeholder="비밀번호 확인" type="password">
+                </div>
+            </div>
+            <div class="로그인-버튼-영역">
+                <button class="로그인-버튼" onclick="checkSignup()">가입하기</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="./login.js"></script>
+</body>
+</html>

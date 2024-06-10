@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>영도구</title>
+    <link rel="stylesheet" href="../default.css">
+</head>
+<body>
+    <div id="wrap">
+        <div id="center">
+            <div id="header">
+                <div id="logo">
+                    <a href="/TW/지도/html/HelloBusan.html"><img id="dsu" src="/icon/동서대로고.jpg" alt="HOME" title="HOME"></a>
+                </div>
+                <div id="location">
+                    <a class="head_a" href="/Place/Place_1.html" target="_blank"><button class="head_but">명 소</button></a>
+                </div>
+                <div id="food">
+                    <a class="head_a" href="/Restaurant/Restaurant_1.html" target="_blank"><button class="head_but">맛 집</button></a>
+                </div>
+                <div id="festival">
+                    <a class="head_a" href="/TW/지도/html/HelloBusan.html"><button class="head_but">지 도</button></a>
+                </div>
+                <div id="search">
+                    <form id="form1" name="search" onsubmit="return searchLocation()">
+                        <input id="sch" type="text" placeholder="검색">
+                    </form>
+                </div>
+                <div id="mypage">
+                    <a href="/TW/로그인/login.html"><img id="mypagelogo" src="/icon/마이페이지.png" alt="마이페이지"></a>
+                </div>
+            </div>
+            <div id="main_picture">
+                <div id="picture">
+                    <img src="../busan_images/영도구/영도구 메인.JPG" alt="영도구 메인 사진">
+                </div>
+            </div>
+            <div id="re_lo_head">
+                <h1 class="assi_title">――인기 명소――――――――――――――――――――――――</h1>
+            </div>
+            <div id="recommend_location">
+                <div class="re_item1">
+                    <img class="item1_img" src="../busan_images/영도구/흰여울문화마을.jpg" alt="흰여울문화마을">
+                    <a href="/JH/영도구/흰여울.html"><div class="description">
+                        가파른 절벽 끝에<br>흰여울문화마을
+                    </div></a>
+                </div>
+                <div class="re_item1">
+                    <img class="item1_img" src="../busan_images/영도구/태종대.jpg" alt="태종대">
+                    <a href="/JH/영도구/태종대.html"><div class="description">
+                        영도 등대와<br>함께한 100년 태종대
+                    </div></a>
+                </div>
+                <div class="re_item1">
+                    <img class="item1_img" src="../busan_images/영도구/국립해양박물관.jpg" alt="국립해양박물관">
+                    <a href="/JH/영도구/국립해양.html"><div class="description">
+                        해양,<br>어디까지 알고 있니?<br>국립해양박물관
+                    </div></a>
+                </div>
+                <div class="re_item1">
+                    <img class="item1_img" src="../busan_images/영도구/영도대교.jpg" alt="영도대교">
+                    <a href="/JH/영도구/영도대교.html"><div class="description">
+                        눈물로 약속한 공간<br>영도대교
+                    </div></a>
+                </div>
+            </div>
+            <div id="re_fo_head">
+                <h1 class="assi_title">――인기 맛집――――――――――――――――――――――――</h1>
+            </div>
+            <div id="recommend_food">
+                <div class="re_item2">
+                    <img class="item2_img" src="../busan_restaurant/영도구/도날드.jpg" alt="도날드">
+                    <a href="../Restaurant_explan/영도구/도날드.html"><div class="description">도날드
+                    </div></a>
+                </div>
+                <div class="re_item2">
+                    <img class="item2_img" src="../busan_restaurant/영도구/영도해녀촌.jpg" alt="영도해녀촌">
+                    <a href="../Restaurant_explan/영도구/영도해녀촌.html"><div class="description">영도해녀촌
+                    </div></a>
+                </div>
+                <div class="re_item2">
+                    <img class="item2_img" src="../busan_restaurant/영도구/우리이모집.jpg" alt="우리이모집">
+                    <a href="../Restaurant_explan/영도구/우리이모집.html"><div class="description">우리이모집
+                    </div></a>
+                </div>
+                <div class="re_item2">
+                    <img class="item2_img" src="../busan_restaurant/영도구/재기돼지국밥.jpg" alt="재기돼지국밥">
+                    <a href="../Restaurant_explan/영도구/재기돼지국밥.html"><div class="description">재기돼지국밥
+                    </div></a>
+                </div>
+            </div>
+            <div id="bottom">
+                <div id="site">
+                    <a href="https://bto.or.kr/kor/Main.do" target="_blank" title="부산관광공사 바로가기"><img class="bot" src="/icon/부산관광공사.png" alt="부산관광공사"></a>&nbsp;&nbsp;&nbsp;
+                    <a href="https://youtube.com/@busan_is_good?si=lN-pwJgqLTfJ-J5P" target="_blank" title="부산 공식유튜브 바로가기"><img class="bot" src="/icon/유튜브 아이콘.png" alt="부산공식유튜브"></a>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="https://www.instagram.com/busancity?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" title="부산 공식인스타그램 바로가기"><img class="bot" src="/icon/인스타 아이콘.png" alt="부산공식인스타그램"></a>
+                </div>
+                <div id="reference">
+                    https://www.flaticon.com/kr/<br>https://visitbusan.net/kr/index.do<br>https://www.siksinhot.com/
+                </div>
+                <div id="weather">
+                    <div id="weather_info"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const API_KEY = '05c6877ec7d415b3bb614c54745fefb5';
+        const LATITUDE = 35.1796;
+        const LONGITUDE = 129.0756;
+        const LOCATION_NAME = "부산";
+
+        document.addEventListener('DOMContentLoaded', () => {
+            getWeather(LATITUDE, LONGITUDE);
+        });
+
+        const getWeather = (lat, lon) => {
+            fetch(
+                `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric&lang=kr`
+            )
+            .then(response => response.json())
+            .then((data) => {
+                console.log(data);
+                displayWeather(data);
+            });
+        }
+
+        const displayWeather = (data) => {
+            const temperature = data.main.temp;
+            const iconCode = data.weather[0].icon;
+            const iconUrl = `http://openweathermap.org/img/wn/${iconCode}@2x.png`;
+
+            let weatherInfo = document.getElementById('weather_info');
+            weatherInfo.innerHTML = `
+                <img src="${iconUrl}" alt="Weather Icon">
+                <div>
+                    <p>${LOCATION_NAME}</p>
+                    <p>${temperature}°C</p>
+                </div>
+            `;
+        }
+    </script>
+    <script src="../sreach_main.js"></script>
+</body>
+</html>

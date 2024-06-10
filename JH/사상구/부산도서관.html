@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>부산도서관</title>
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=ee6abb88fdd6d727fad00b04818744e3">
+    </script>
+</head>
+<link rel="stylesheet" href="../sights.css">
+<body>
+    <div id= "container">
+        <div id="header">
+            <div id="logo">
+                <a href="/TW/지도/html/HelloBusan.html"><img id="dsu" src="/icon/동서대로고.jpg" alt="HOME" title="HOME"></a>
+            </div>
+            <div id="location">
+                <a class="head_a" href="/Place/Place_1.html" target="_blank"><button class="head_but">명 소</button></a>
+            </div>
+            <div id="food">
+                <a class="head_a" href="/Restaurant/Restaurant_1.html" target="_blank"><button class="head_but">맛 집</button></a>
+            </div>
+            <div id="festival">
+                <a class="head_a" href="/TW/지도/html/HelloBusan.html"><button class="head_but">지 도</button></a>
+            </div>
+            <div id="search">
+                <form id="form1" name="search" onsubmit="return searchLocation()">
+                    <input id="sch" type="text" placeholder="검색">
+                </form>
+            </div>
+            <div id="mypage">
+                <a href="/TW/로그인/login.html"><img id="mypagelogo" src="/icon/마이페이지.png" alt="마이페이지"></a>
+            </div>
+        </div>
+        <div id= "title">
+            <h1>우리 모두의 열린 서재 부산도서관</h1>
+        </div>
+        <div class = "picture">
+            <img id="picture_item_1" src="https://www.visitbusan.net/uploadImgs/files/cntnts/20201216170753435" alt="">
+        </div>
+        <div class="descript" id="descript_1">
+            부산도서관은 부산광역시 서구 동대신동에 위치한 공공 도서관으로, 2020년에 개관했다.<br> 이 도서관은 부산의 대표적인 도서관으로서 다양한 자료와 최신 시설을 갖추고 있어 지역 주민들에게 지식과 문화, 교육의 중심지로 기능하고 있다.<br>
+            부산도서관은 다양한 장르의 도서와 전자책, 멀티미디어 자료 등을 제공하며, 어린이부터 성인까지 모든 연령층이 이용할 수 있는 공간을 갖추고 있다.<br>
+        </div>
+        <div class ="picture" id="picture_2">
+            <img class ="picture_item_2" src="https://www.visitbusan.net/uploadImgs/files/cntnts/20201216170753621_wufrotr" alt="">
+            <img class ="picture_item_2" src="https://www.visitbusan.net/uploadImgs/files/cntnts/20201216170754000_wufrotr" alt="">
+        </div>
+        <div class="descript" id="descript_2">
+            도서관에서는 정기적으로 독서 프로그램, 강연, 전시회 등 다양한 문화 행사를 개최하여 지역 주민들의 문화 생활을 풍부하게 해준다.<br>
+            부산도서관은 부산 시민들에게 지식과 정보, 문화적 경험을 제공하는 중요한 공간으로 자리매김하고 있으며, 누구나 편리하게 접근할 수 있는 열린 도서관을 지향하고 있다.<br>
+        </div>
+        <div id="information">
+            <div id="map"></div>
+            <div id="guide">
+                <div id="guide_info">
+                    <div id = "guide_left">
+                        <div>주소</div>
+                        <div>휴무일</div>
+                        <div>이용요금</div>
+                        <div>운영시간</div>
+                    </div>
+                    <div id = "guide_right">
+                        <div>부산광역시 사상구 사상로 310번길 33</div>
+                        <div>월요일, 법정공휴일, 임시휴관일</div>
+                        <div>홈페이지 참조</div>
+                        <div>상시</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="bottom">
+            <div id="site">
+                <a href="https://bto.or.kr/kor/Main.do" target="_blank" title="부산관광공사 바로가기"><img class="bot" src="/icon/부산관광공사.png" alt="부산관광공사"></a>&nbsp;&nbsp;&nbsp;
+                <a href="https://youtube.com/@busan_is_good?si=lN-pwJgqLTfJ-J5P" target="_blank" title="부산 공식유튜브 바로가기"><img class="bot" src="/icon/유튜브 아이콘.png" alt="부산공식유튜브"></a>&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="https://www.instagram.com/busancity?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" title="부산 공식인스타그램 바로가기"><img class="bot" src="/icon/인스타 아이콘.png" alt="부산공식인스타그램"></a>
+            </div>
+            <div id="reference">
+                https://www.flaticon.com/kr/<br>https://visitbusan.net/kr/index.do<br>https://www.siksinhot.com/
+            </div>
+            <div id="weather">
+                <div id="weather_info"></div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const API_KEY = '05c6877ec7d415b3bb614c54745fefb5';
+        const LATITUDE = 35.1796;
+        const LONGITUDE = 129.0756;
+        const LOCATION_NAME = "부산";
+
+        document.addEventListener('DOMContentLoaded', () => {
+            getWeather(LATITUDE, LONGITUDE);
+        });
+
+        const getWeather = (lat, lon) => {
+            fetch(
+                `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric&lang=kr`
+            )
+            .then(response => response.json())
+            .then((data) => {
+                console.log(data);
+                displayWeather(data);
+            });
+        }
+
+        const displayWeather = (data) => {
+            const temperature = data.main.temp;
+            const iconCode = data.weather[0].icon;
+            const iconUrl = `http://openweathermap.org/img/wn/${iconCode}@2x.png`;
+
+            let weatherInfo = document.getElementById('weather_info');
+            weatherInfo.innerHTML = `
+                <img src="${iconUrl}" alt="Weather Icon">
+                <div>
+                    <p>${LOCATION_NAME}</p>
+                    <p>${temperature}°C</p>
+                </div>
+            `;
+
+            let container = document.getElementById('map');
+            let options = {
+                center: new kakao.maps.LatLng(35.172711, 128.985285),
+                level: 3
+            };
+        
+            let map = new kakao.maps.Map(container, options);
+            
+            let markerPosition = new kakao.maps.LatLng(35.172711, 128.985285)
+            
+            let marker = new kakao.maps.Marker({
+                position : markerPosition
+            })
+            marker.setMap(map)
+        }
+    </script>
+</body>
+</html>

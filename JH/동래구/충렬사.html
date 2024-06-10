@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>충렬사</title>
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=ee6abb88fdd6d727fad00b04818744e3">
+    </script>
+</head>
+<link rel="stylesheet" href="../sights.css">
+<body>
+    <div id= "container">
+        <div id="header">
+            <div id="logo">
+                <a href="/TW/지도/html/HelloBusan.html"><img id="dsu" src="/icon/동서대로고.jpg" alt="HOME" title="HOME"></a>
+            </div>
+            <div id="location">
+                <a class="head_a" href="/Place/Place_1.html" target="_blank"><button class="head_but">명 소</button></a>
+            </div>
+            <div id="food">
+                <a class="head_a" href="/Restaurant/Restaurant_1.html" target="_blank"><button class="head_but">맛 집</button></a>
+            </div>
+            <div id="festival">
+                <a class="head_a" href="/TW/지도/html/HelloBusan.html"><button class="head_but">지 도</button></a>
+            </div>
+            <div id="search">
+                <form id="form1" name="search" onsubmit="return searchLocation()">
+                    <input id="sch" type="text" placeholder="검색">
+                </form>
+            </div>
+            <div id="mypage">
+                <a href="/TW/로그인/login.html"><img id="mypagelogo" src="/icon/마이페이지.png" alt="마이페이지"></a>
+            </div>
+        </div>
+        <div id= "title">
+            <h1>전통과 현대가 어우러진 영웅들의 쉼터,<br>충렬사
+            </h1>
+        </div>
+        <div class = "picture">
+            <img id="picture_item_1" src="https://www.visitbusan.net/uploadImgs/files/cntnts/20200102125306322" alt="">
+        </div>
+        <div class="descript" id="descript_1">
+            부산 충렬사는 부산 동래구 온천동에 위치한 절로, 동래산 자락에 자리하고 있다.<br> 이 절은 고려시대에 세워진 사찰로, 역사와 문화를 이어가는 중요한 유적지이다.<br> 충렬사는 부산에서 가장 유명한 사찰 중 하나로, 그 아름다운 자연 경치와 함께 동래산의 중요한 문화 유산으로 손꼽힌다.<br>
+            절 내부에는 다양한 문화재와 유물이 보관되어 있으며, 특히 대웅전(大雄殿)과 다른 다채로운 건물들은 사찰의 아름다움을 더해준다.
+        </div>
+        <div class ="picture" id="picture_2">
+            <img class ="picture_item_2" src="https://www.visitbusan.net/uploadImgs/files/cntnts/20200102125306477_wufrotr" alt="">
+            <img class ="picture_item_2" src="https://www.visitbusan.net/uploadImgs/files/cntnts/20200102125307838_wufrotr" alt="">
+        </div>
+        <div class="descript" id="descript_2">
+            충렬사는 특히 가을 단풍이 물들면 그 아름다움이 최고조에 달합니다.<br> 이곳은 많은 관광객들과 신도들이 찾는 곳으로, 명상과 수양을 위한 좋은 장소로도 손꼽힌다.<br>
+            절 내부에서는 조용한 분위기 속에서 옛 전통을 느낄 수 있으며, 자연 속에서의 힐링을 원하는 이들에게는 안성맞춤인 곳이다.
+        </div>
+        <div id="information">
+            <div id="map"></div>
+            <div id="guide">
+                <div id="guide_info">
+                    <div id="guide_left">
+                        <div>주소</div>
+                        <div>휴무일</div>
+                        <div>이용요금</div>
+                        <div>전화번호</div>
+                        <div>운영시간</div>
+                        <div>&nbsp</div>
+                        <div>&nbsp</div>
+                    </div>
+                    <div id ="guide_right">
+                        <div>부산광역시 동래구 충렬대로 345</div>
+                        <div>연중무휴</div>
+                        <div>무료</div>
+                        <div>0507-1416-4223</div> 
+                        <div>09:00-21:00(4월-9월)</div>
+                        <div>09:00-20:00(10월-3월)</div>
+                        <div>09:00-18:00(본전/기념관)</div>                       
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="bottom">
+            <div id="site">
+                <a href="https://bto.or.kr/kor/Main.do" target="_blank" title="부산관광공사 바로가기"><img class="bot" src="/icon/부산관광공사.png" alt="부산관광공사"></a>&nbsp;&nbsp;&nbsp;
+                <a href="https://youtube.com/@busan_is_good?si=lN-pwJgqLTfJ-J5P" target="_blank" title="부산 공식유튜브 바로가기"><img class="bot" src="/icon/유튜브 아이콘.png" alt="부산공식유튜브"></a>&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="https://www.instagram.com/busancity?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" title="부산 공식인스타그램 바로가기"><img class="bot" src="/icon/인스타 아이콘.png" alt="부산공식인스타그램"></a>
+            </div>
+            <div id="reference">
+                https://www.flaticon.com/kr/<br>https://visitbusan.net/kr/index.do<br>https://www.siksinhot.com/
+            </div>
+            <div id="weather">
+                <div id="weather_info"></div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const API_KEY = '05c6877ec7d415b3bb614c54745fefb5';
+        const LATITUDE = 35.1796;
+        const LONGITUDE = 129.0756;
+        const LOCATION_NAME = "부산";
+
+        document.addEventListener('DOMContentLoaded', () => {
+            getWeather(LATITUDE, LONGITUDE);
+        });
+
+        const getWeather = (lat, lon) => {
+            fetch(
+                `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric&lang=kr`
+            )
+            .then(response => response.json())
+            .then((data) => {
+                console.log(data);
+                displayWeather(data);
+            });
+        }
+
+        const displayWeather = (data) => {
+            const temperature = data.main.temp;
+            const iconCode = data.weather[0].icon;
+            const iconUrl = `http://openweathermap.org/img/wn/${iconCode}@2x.png`;
+
+            let weatherInfo = document.getElementById('weather_info');
+            weatherInfo.innerHTML = `
+                <img src="${iconUrl}" alt="Weather Icon">
+                <div>
+                    <p>${LOCATION_NAME}</p>
+                    <p>${temperature}°C</p>
+                </div>
+            `;
+            
+            let container = document.getElementById('map');
+            let options = {
+                center: new kakao.maps.LatLng(35.201199, 129.095801),
+                level: 3
+            };
+            let map = new kakao.maps.Map(container, options);
+            let markerPosition = new kakao.maps.LatLng(35.201199, 129.095801)
+            let marker = new kakao.maps.Marker({
+                position : markerPosition
+            })
+            marker.setMap(map)
+        }
+    </script>
+</body>
+</html>
