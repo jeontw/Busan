@@ -31,6 +31,7 @@ img{
     height: 1000px;
     position: relative;
     top: 50px;
+    left: 150px;
 }
 
 #지도{
@@ -38,15 +39,15 @@ img{
     height: 1000px;
     position: relative;
     bottom: 120px;
-    right: 450px;
+    right: 200px;
 }
 
 
 #강서구{
     position: absolute;
     top: 490px; right: 1135px;
-    z-index: 0;
-}
+        z-index: 0;
+    }
 #강서구:hover{
     transform: scale(1.1);
     z-index: 3;
